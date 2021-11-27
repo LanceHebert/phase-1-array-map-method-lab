@@ -11,6 +11,22 @@ const tutorials = [
   'what is JSONP?'
 ];
 
-const titleCased = () => {
-  return tutorials
+function titleCased(){
+  //using map to transform tutorials array
+  const titleCased = tutorials.map(line => {  
+    //need to split line we get into an array of words because a string is not an array
+    const words = line.split(" ");
+    console.log(words);
+    //now we have a words ARRAY, lets map it so we can transform first character
+    const capitalizedWords = words.map(word => {
+      //adding first character to the rest of the word sliced with no first character
+      return word[0].toUpperCase() + word.slice(1);
+    })
+    //joining everything back into a single line and returning back to tutorial at that index
+  return capitalizedWords.join(" ");
+  
+  })
+return titleCased;
 }
+
+
